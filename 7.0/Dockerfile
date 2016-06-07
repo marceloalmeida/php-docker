@@ -18,4 +18,9 @@ RUN echo "deb http://packages.dotdeb.org jessie all" | tee /etc/apt/sources.list
 # INSTALL PACKAGES DEPENDENCIES
 RUN apt-get install -y php7.0-cli php7.0-fpm
 
+# CLEAN UP IMAGE
+RUN apt-get autoremove --purge
+RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 CMD ["php", "-a"]
