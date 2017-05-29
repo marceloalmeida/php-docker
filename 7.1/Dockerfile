@@ -7,7 +7,7 @@ WORKDIR "/root"
 ENV DEBIAN_FRONTEND noninteractive
 
 # INSTALL DEPENDENCIES
-RUN apt-get update && apt-get install -y curl && \
+RUN apt-get update && apt-get install -y curl apt-transport-https && \
   echo "deb https://packages.sury.org/php/ jessie main" | tee /etc/apt/sources.list.d/sury.list && \
   echo "deb-src https://packages.sury.org/php/ jessie main" | tee -a /etc/apt/sources.list.d/sury.list && \
   curl -s https://packages.sury.org/php/apt.gpg | apt-key add - && \
