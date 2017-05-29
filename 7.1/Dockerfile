@@ -8,11 +8,11 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # INSTALL DEPENDENCIES
 RUN apt-get update && apt-get install -y curl && \
-  echo "deb http://packages.dotdeb.org jessie all" | tee /etc/apt/sources.list.d/dotdeb.list && \
-  echo "deb-src http://packages.dotdeb.org jessie all" | tee -a /etc/apt/sources.list.d/dotdeb.list && \
-  curl -s https://www.dotdeb.org/dotdeb.gpg | apt-key add - && \
+  echo "deb https://packages.sury.org/php/ jessie main" | tee /etc/apt/sources.list.d/sury.list && \
+  echo "deb-src https://packages.sury.org/php/ jessie main" | tee -a /etc/apt/sources.list.d/sury.list && \
+  curl -s https://packages.sury.org/php/apt.gpg | apt-key add - && \
   apt-get update && \
-  apt-get install -y php7.0-cli php7.0-fpm && \
+  apt-get install -y php7.1-cli php7.1-fpm && \
   apt-get autoremove --purge && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
